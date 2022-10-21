@@ -6,9 +6,10 @@ class MyCard extends StatefulWidget {
   State<MyCard> createState() => _MyCardState();
 }
 
+bool fav = false;
+int fav_count = 0;
+
 class _MyCardState extends State<MyCard> {
-  bool fav = false;
-  int fav_count = 0;
   void count() {
     if (fav_count == 0) {
       setState(() {
