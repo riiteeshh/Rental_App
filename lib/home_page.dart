@@ -8,8 +8,6 @@ import './new_card.dart';
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
-  final List<NewEntry> entries;
-  const HomePage({Key? key, required this.entries}) : super(key: key);
 }
 
 class _HomePageState extends State<HomePage> {
@@ -17,11 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.entries.isEmpty) {
-      setState(() {
-        Center(child: Text('no vehicle available'));
-      });
-    }
     return SafeArea(
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -81,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: clear, icon: Icon(Icons.pin_drop_rounded))),
               ),
             ),
+            MyCard(),
           ],
         ),
       ),

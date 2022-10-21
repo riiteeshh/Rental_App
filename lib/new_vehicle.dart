@@ -297,7 +297,7 @@ class _NewVehicleState extends State<NewVehicle> {
   Future addvehicle() {
     addEntries(modelname.text, price.text, type.text, mobilenumber.text,
         vehiclenumber.text, location.text);
-    return Navigator.push(context,
-        MaterialPageRoute(builder: (context) => HomePage(entries: entries)));
+    return Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 }

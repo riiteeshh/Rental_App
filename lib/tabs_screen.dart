@@ -72,9 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget getBody() {
     List<Widget> pages = [
-      const HomePage(
-        entries: [],
-      ),
+      HomePage(),
       Container(
         alignment: Alignment.center,
         child: const Text(

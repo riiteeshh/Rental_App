@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import './new_entry.dart';
 
 class MyCard extends StatefulWidget {
-  final List<NewEntry> entries;
-  const MyCard({Key? key, required this.entries}) : super(key: key);
-
   @override
   State<MyCard> createState() => _MyCardState();
 }
@@ -30,17 +27,12 @@ class _MyCardState extends State<MyCard> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.entries.isEmpty) {
-      setState(() {
-        Text('no vehicle available');
-      });
-    }
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 1,
       margin: EdgeInsets.only(top: 120),
       child: ListView.builder(
-        itemCount: widget.entries.length,
+        itemCount: 4,
         itemBuilder: ((context, index) {
           return Container(
             width: double.infinity,
@@ -63,7 +55,7 @@ class _MyCardState extends State<MyCard> {
                         child: Row(
                           children: [
                             Text(
-                              widget.entries[index].price,
+                              '1000',
                               style: TextStyle(
                                   color: Colors.green,
                                   fontStyle: FontStyle.italic,
@@ -81,7 +73,7 @@ class _MyCardState extends State<MyCard> {
                         width: 160,
                         margin: EdgeInsets.only(right: 188),
                         child: Text(
-                          widget.entries[index].model,
+                          'MarutiSuzuki',
                           style: TextStyle(
                               fontFamily: 'FuzzybubblesBold',
                               fontSize: 25,
