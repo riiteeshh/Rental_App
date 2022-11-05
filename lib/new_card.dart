@@ -6,25 +6,9 @@ class MyCard extends StatefulWidget {
   State<MyCard> createState() => _MyCardState();
 }
 
-bool fav = false;
-int fav_count = 0;
-
 class _MyCardState extends State<MyCard> {
-  void count() {
-    if (fav_count == 0) {
-      setState(() {
-        fav = true;
-        fav_count = 1;
-        print('true');
-      });
-    } else if (fav_count == 1) {
-      setState(() {
-        print('false');
-        fav = false;
-        fav_count = 0;
-      });
-    }
-  }
+  bool _fav = false;
+  int _fav_count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,87 +17,115 @@ class _MyCardState extends State<MyCard> {
       height: MediaQuery.of(context).size.height * 1,
       margin: EdgeInsets.only(top: 120),
       child: ListView.builder(
-        itemCount: 4,
+        itemCount: 10,
         itemBuilder: ((context, index) {
           return Container(
             width: double.infinity,
-            height: 180,
+            height: 260,
             margin: EdgeInsets.all(10),
             child: Card(
               shadowColor: Colors.red,
               elevation: 0,
-              color: Colors.amberAccent.withOpacity(0.5),
+              color: Colors.black.withOpacity(0.8),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Stack(
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(15),
-                        child: Row(
-                          children: [
-                            Text(
-                              '1000',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1.5,
-                                  fontSize: 20,
-                                  fontFamily: 'Bowlby'),
-                            )
-                          ],
-                        ),
+              child: InkWell(
+                enableFeedback: false,
+                splashColor: Colors.black,
+                onTap: () => print('Clicked'),
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(right: 20, top: 10),
+                      height: 155,
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      child: Image.asset('asset/images/jeep.png'),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.only(top: 150, left: 20),
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'Scorpio',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 25),
+                          ),
+                          Divider(
+                            color: Colors.white,
+                            endIndent: 50,
+                            thickness: 1,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Type: Jeep',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Seats: 4',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 25),
+                                child: Text(
+                                  'Price: Rs.4000',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        height: 85,
-                        width: 160,
-                        margin: EdgeInsets.only(right: 188),
-                        child: Text(
-                          'MarutiSuzuki',
-                          style: TextStyle(
-                              fontFamily: 'FuzzybubblesBold',
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 47, 69, 80)),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 156, top: 10),
-                    height: 155,
-                    alignment: Alignment.bottomCenter,
-                    width: 200,
-                    child: Image.asset('asset/images/car.png'),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: fav
-                            ? Colors.blueAccent.withOpacity(0.6)
-                            : Colors.red.withOpacity(0.1),
-                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      alignment: Alignment.topRight,
                       child: IconButton(
-                        color: fav
-                            ? Colors.pinkAccent
-                            : Colors.white.withOpacity(1),
-                        highlightColor: fav ? Colors.white : Colors.pink,
-                        splashColor: fav ? Colors.pink : Colors.white,
-                        onPressed: count,
+                        color:
+                            _fav ? Colors.red : Colors.white.withOpacity(0.5),
+                        highlightColor:
+                            _fav ? Colors.white.withOpacity(0.5) : Colors.red,
+                        splashColor:
+                            _fav ? Colors.red : Colors.white.withOpacity(0.5),
+                        onPressed: () {
+                          if (_fav_count == 0) {
+                            setState(() {
+                              _fav = true;
+                              _fav_count++;
+                              print('true');
+                            });
+                          } else if (_fav_count == 1) {
+                            setState(() {
+                              print('false');
+                              _fav = false;
+                              _fav_count--;
+                            });
+                          }
+                        },
                         icon: Icon(Icons.favorite_rounded),
                         enableFeedback: false,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

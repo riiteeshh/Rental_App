@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             size: 30,
           ),
           elevation: 80,
-          splashColor: Colors.amber,
+          splashColor: Colors.black,
           backgroundColor: Colors.blue,
           foregroundColor: Colors.black,
         ),
@@ -56,13 +56,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: (BorderSide(width: 1.0, color: Colors.blue)),
+                      borderSide: (BorderSide(width: 1.0, color: Colors.black)),
                       borderRadius: BorderRadius.all(
                         Radius.circular(18),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: (BorderSide(width: 1.0, color: Colors.amber)),
+                      borderSide: (BorderSide(width: 1.0, color: Colors.blue)),
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),

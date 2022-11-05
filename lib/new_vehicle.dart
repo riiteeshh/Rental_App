@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rental_app/home_page.dart';
 import 'package:rental_app/new_card.dart';
 import './new_entry.dart';
+import './tabs_screen.dart';
 import './new_card.dart';
 
 class NewVehicle extends StatefulWidget {
@@ -50,7 +51,7 @@ class _NewVehicleState extends State<NewVehicle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white.withOpacity(0.8),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
@@ -298,6 +299,6 @@ class _NewVehicleState extends State<NewVehicle> {
     addEntries(modelname.text, price.text, type.text, mobilenumber.text,
         vehiclenumber.text, location.text);
     return Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => MyHomePage()));
   }
 }

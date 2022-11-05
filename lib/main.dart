@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.white.withOpacity(0.8),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

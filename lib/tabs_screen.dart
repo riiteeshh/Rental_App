@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _inactiveColor = Colors.grey;
   @override
   Widget build(BuildContext context) {
-    final List<NewEntry> ent;
+    //final List<NewEntry> ent;
     return Scaffold(
         // appBar: AppBar(
         //   automaticallyImplyLeading: false,
