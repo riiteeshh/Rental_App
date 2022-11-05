@@ -38,6 +38,13 @@ class _MyCardState extends State<MyCard> {
   ];
   int fav_count = 0;
   bool fav = false;
+  List img = [
+    Image.asset('asset/images/car.png'),
+    Image.asset('asset/images/jeep.png'),
+    Image.asset('asset/images/suv.png'),
+  ];
+
+  int ind = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,6 +54,13 @@ class _MyCardState extends State<MyCard> {
       child: ListView.builder(
         itemCount: ent.length,
         itemBuilder: ((context, index) {
+          if (ent[index].type == 'Jeep') {
+            ind = 1;
+          } else if (ent[index].type == 'Car') {
+            ind = 0;
+          } else if (ent[index].type == 'Suv') {
+            ind = 2;
+          }
           return Container(
             width: double.infinity,
             height: 260,
@@ -80,7 +94,7 @@ class _MyCardState extends State<MyCard> {
                       height: 155,
                       alignment: Alignment.center,
                       width: double.infinity,
-                      child: (Image.asset('asset/images/jeep.png')),
+                      child: (img[ind]),
                     ),
                     Container(
                       width: double.infinity,
