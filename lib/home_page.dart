@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)?.settings.arguments;
     return SafeArea(
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: (BorderSide(width: 1.0, color: Colors.black)),
+                      borderSide: (BorderSide(width: 1.0, color: Colors.blue)),
                       borderRadius: BorderRadius.all(
                         Radius.circular(18),
                       ),

@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:rental_app/carpage.dart';
+import 'package:rental_app/home_page.dart';
 import './login_screen.dart';
 
 void main() {
@@ -13,9 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'RentIt',
       theme: ThemeData(primarySwatch: Colors.amber),
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/homepage': (context) => HomePage(),
+        '/carpage': (context) => CarPage()
+      },
     );
   }
 }
@@ -38,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white.withOpacity(0.8),
+        backgroundColor: Colors.white.withOpacity(1),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

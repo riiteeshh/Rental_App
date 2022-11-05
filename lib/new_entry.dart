@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NewEntry {
   final String id;
-  final DateTime dateTime;
+  final String seat;
   final String model;
   final String price;
   final String type;
@@ -12,7 +12,7 @@ class NewEntry {
 
   NewEntry(
       {required this.id,
-      required this.dateTime,
+      required this.seat,
       required this.model,
       required this.price,
       required this.type,

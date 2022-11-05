@@ -93,9 +93,9 @@ flutter:
     - family: FuzzybubblesBold
       fonts:
         - asset: asset/fonts/FuzzyBubbles-Bold.ttf
-    - family: Xenogears
+    - family: Zen
       fonts:
-        - asset: asset/fonts/Xenogears.ttf
+        - asset: asset/fonts/Zen.ttf
          
   #
   # For details regarding fonts from package dependencies,
