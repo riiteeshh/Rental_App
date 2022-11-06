@@ -329,9 +329,7 @@ class _NewVehicleState extends State<NewVehicle> {
   }
 
   void addvehicle() {
-    // addEntries(modelname.text, price.text, type.text, mobilenumber.text,
-    //     seat.text, vehiclenumber.text, location.text);
-    Navigator.pushNamed(context, '/homepage', arguments: {
+    Navigator.pushReplacementNamed(context, '/homepage', arguments: {
       'modelname': modelname.text,
       'price': price.text,
       'type': type.text,
