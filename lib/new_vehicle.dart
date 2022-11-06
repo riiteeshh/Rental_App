@@ -22,24 +22,6 @@ class _NewVehicleState extends State<NewVehicle> {
   final seat = TextEditingController();
   final location = TextEditingController();
 
-  List<NewEntry> entries = [];
-
-  void addEntries(String modelname, String price, String type, String seat,
-      String mobilenumber, String vehiclenumber, String location) {
-    final newe = NewEntry(
-        id: DateTime.now().toString(),
-        seat: seat,
-        model: modelname,
-        price: price,
-        type: type,
-        mobilenumber: mobilenumber,
-        vehiclenumber: vehiclenumber,
-        locate: location);
-    setState(() {
-      entries.add(newe);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,7 +194,7 @@ class _NewVehicleState extends State<NewVehicle> {
                     margin: EdgeInsets.only(top: 8),
                     padding: EdgeInsets.all(10),
                     child: TextField(
-                      controller: type,
+                      controller: seat,
                       keyboardType: TextInputType.numberWithOptions(
                           signed: false, decimal: false),
                       textInputAction: TextInputAction.next,
@@ -346,9 +328,17 @@ class _NewVehicleState extends State<NewVehicle> {
     );
   }
 
-  Future addvehicle() {
-    addEntries(modelname.text, price.text, type.text, mobilenumber.text,
-        seat.text, vehiclenumber.text, location.text);
-    return Navigator.pushNamed(context, '/homepage', arguments: entries);
+  void addvehicle() {
+    // addEntries(modelname.text, price.text, type.text, mobilenumber.text,
+    //     seat.text, vehiclenumber.text, location.text);
+    Navigator.pushNamed(context, '/homepage', arguments: {
+      'modelname': modelname.text,
+      'price': price.text,
+      'type': type.text,
+      'mobilenumber': mobilenumber.text,
+      'seat': seat.text,
+      'vehiclenumber': vehiclenumber.text,
+      'location': location.text
+    });
   }
 }

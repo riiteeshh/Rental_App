@@ -13,6 +13,19 @@ class _CarPageState extends State<CarPage> {
   Widget build(BuildContext context) {
     final arg = (ModalRoute.of(context)?.settings.arguments ??
         <dynamic, dynamic>{}) as Map;
+    int sel = 0;
+    List img = [
+      Image.asset('asset/images/car.png'),
+      Image.asset('asset/images/jeep.png'),
+      Image.asset('asset/images/suv.png'),
+    ];
+    if (arg['type'] == 'Jeep') {
+      sel = 1;
+    } else if (arg['type'] == 'Car') {
+      sel = 0;
+    } else if (arg['type'] == 'Suv') {
+      sel = 2;
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -26,13 +39,14 @@ class _CarPageState extends State<CarPage> {
             child: Container(
                 color: Colors.blue.withOpacity(0.8),
                 padding: EdgeInsets.all(10),
-                child: Image.asset('asset/images/jeep.png')),
+                child: img[sel]),
           ),
           Expanded(
             flex: 2,
             child: Container(
               color: Colors.blue.withOpacity(0.8),
               width: double.infinity,
+              height: double.maxFinite,
               child: Card(
                 elevation: 10,
                 shape: RoundedRectangleBorder(

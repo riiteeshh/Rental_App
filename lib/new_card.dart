@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import './new_entry.dart';
 
 class MyCard extends StatefulWidget {
+  var modelname, price, type, mobilenumber, seat, vehiclenumber, location;
+  MyCard(
+      {Key? key,
+      this.modelname,
+      this.price,
+      this.type,
+      this.mobilenumber,
+      this.seat,
+      this.vehiclenumber,
+      this.location});
+
   @override
   State<MyCard> createState() => _MyCardState();
 }
@@ -36,6 +47,7 @@ class _MyCardState extends State<MyCard> {
         vehiclenumber: 'Ba-1-Pa-2582',
         locate: 'Ktm'),
   ];
+
   int fav_count = 0;
   bool fav = false;
   List img = [
@@ -47,6 +59,23 @@ class _MyCardState extends State<MyCard> {
   int ind = 0;
   @override
   Widget build(BuildContext context) {
+    if (widget.price != null) {
+      final newe = NewEntry(
+          id: DateTime.now().toString(),
+          seat: widget.seat,
+          model: widget.modelname,
+          price: widget.price,
+          type: widget.type,
+          mobilenumber: widget.mobilenumber,
+          vehiclenumber: widget.vehiclenumber,
+          locate: widget.location);
+      setState(() {
+        ent.add(newe);
+      });
+    } else {
+      print('false');
+    }
+
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 1,
@@ -85,7 +114,6 @@ class _MyCardState extends State<MyCard> {
                   'mobileno': ent[index].mobilenumber,
                   'vehicleno': ent[index].vehiclenumber,
                   'locate': ent[index].locate,
-                  'index': index.toString()
                 }),
                 child: Stack(
                   children: <Widget>[

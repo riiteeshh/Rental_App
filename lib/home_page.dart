@@ -15,7 +15,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final arg = ModalRoute.of(context)?.settings.arguments;
+    final arg = (ModalRoute.of(context)?.settings.arguments ??
+        <dynamic, dynamic>{}) as Map;
     return SafeArea(
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -75,7 +76,15 @@ class _HomePageState extends State<HomePage> {
                         onPressed: clear, icon: Icon(Icons.pin_drop_rounded))),
               ),
             ),
-            MyCard(),
+            MyCard(
+              modelname: arg['modelname'],
+              price: arg['price'],
+              type: arg['type'],
+              mobilenumber: arg['mobilenumber'],
+              seat: arg['seat'],
+              vehiclenumber: arg['vehiclenumber'],
+              location: arg['location'],
+            ),
           ],
         ),
       ),
